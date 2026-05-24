@@ -111,7 +111,7 @@ const About = () => {
               {/* MOBILE IMAGE */}
               <div className="lg:hidden mb-8">
                 <img
-                  src="https://images.pexels.com/photos/5069628/pexels-photo-5069628.jpeg"
+                  src="https://images.pexels.com/photos/7797115/pexels-photo-7797115.jpeg"
                   alt="Our Story"
                   className="w-full rounded-3xl shadow-2xl object-cover"
                 />
