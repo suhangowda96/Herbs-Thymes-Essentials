@@ -27,14 +27,14 @@ const Contact = () => {
     const phoneNumber = "919925007996"; // WhatsApp number (no +)
 
     const message = `
-🌿 New Contact Request - Herbs & Thymes
+    New Contact Request - Herbs & Thymes
 
-👤 Name: ${formData.name}
-📧 Email: ${formData.email}
-📱 Phone: ${formData.phone}
-📌 Subject: ${formData.subject}
+    Name: ${formData.name}
+    Email: ${formData.email}
+    Phone: ${formData.phone}
+    Subject: ${formData.subject}
 
-💬 Message:
+  Message:
 ${formData.message}
     `;
 
