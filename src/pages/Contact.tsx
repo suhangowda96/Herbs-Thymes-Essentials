@@ -20,13 +20,43 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // ✅ ONLY CHANGE IS HERE (WHATSAPP REDIRECT)
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setTimeout(() => {
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-      setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1000);
+
+    const phoneNumber = "919925007996"; // WhatsApp number (no +)
+
+    const message = `
+🌿 New Contact Request - Herbs & Thymes
+
+👤 Name: ${formData.name}
+📧 Email: ${formData.email}
+📱 Phone: ${formData.phone}
+📌 Subject: ${formData.subject}
+
+💬 Message:
+${formData.message}
+    `;
+
+    const encodedMessage = encodeURIComponent(message);
+
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp
+    window.open(whatsappURL, "_blank");
+
+    // Keep your success UI (no style change)
+    setIsSubmitted(true);
+
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
+    });
+
+    setTimeout(() => setIsSubmitted(false), 5000);
   };
 
   const contactInfo = [
@@ -51,6 +81,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-24 bg-cream">
+
       {/* Hero Section */}
       <section className="relative h-[45vh] flex items-center overflow-hidden -mt-24">
         <div className="absolute inset-0">
@@ -117,10 +148,11 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Form + WhatsApp (full height match) */}
+      {/* Form + WhatsApp */}
       <section className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -134,9 +166,11 @@ const Contact = () => {
                   Send Message
                 </span>
               </div>
+
               <h2 className="font-serif text-3xl text-charcoal mt-1 mb-3">
                 Let’s Connect
               </h2>
+
               <p className="text-soft-gray text-sm mb-6">
                 Have questions about our products, orders, or custom Ayurvedic blends? Drop us a message.
               </p>
@@ -214,7 +248,7 @@ const Contact = () => {
               </form>
             </motion.div>
 
-            {/* WhatsApp Card - Full Height Match */}
+            {/* WhatsApp Card */}
             <div className="h-full">
               <motion.div
                 initial={{ opacity: 0, x: 40 }}
@@ -230,7 +264,9 @@ const Contact = () => {
                 <div className="absolute inset-0 bg-black/50" />
                 <div className="relative z-10 flex flex-col justify-between h-full p-7 text-white">
                   <div>
-                    <h3 className="font-serif text-2xl mb-2">Quick Support</h3>
+                    <h3 className="font-serif text-2xl mb-2">
+                      Quick Support
+                    </h3>
                     <p className="text-white/80 text-sm mb-4">
                       Chat with us on WhatsApp – we reply within minutes.
                     </p>
@@ -241,6 +277,7 @@ const Contact = () => {
                 </div>
               </motion.div>
             </div>
+
           </div>
         </div>
       </section>

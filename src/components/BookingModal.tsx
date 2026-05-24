@@ -25,7 +25,9 @@ const BookingModal = ({ isOpen, onClose, productName }: BookingModalProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     const phoneNumber = '919925007996';
+
     const message = `Hello, I am interested in booking ${productName}.
 Name: ${formData.name}
 Phone: ${formData.phone}
@@ -67,6 +69,7 @@ Please share more details.`;
                   <p className="text-white/80 text-xs">Premium Skincare Collection</p>
                 </div>
               </div>
+
               <button
                 onClick={onClose}
                 className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
@@ -76,15 +79,18 @@ Please share more details.`;
             </div>
 
             <div className="p-6">
+
               <div className="bg-beige/30 rounded-xl p-4 mb-6">
                 <p className="text-sm text-soft-gray">Selected Product:</p>
                 <p className="font-serif text-lg text-olive font-medium">{productName}</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
+
+                {/* 👤 NAME */}
                 <div>
                   <label className="block text-sm font-medium text-charcoal mb-2">
-                    Your Name *
+                    👤 Your Name *
                   </label>
                   <input
                     type="text"
@@ -97,9 +103,10 @@ Please share more details.`;
                   />
                 </div>
 
+                {/* 📱 PHONE */}
                 <div>
                   <label className="block text-sm font-medium text-charcoal mb-2">
-                    Phone Number *
+                    📱 Phone Number *
                   </label>
                   <input
                     type="tel"
@@ -112,9 +119,10 @@ Please share more details.`;
                   />
                 </div>
 
+                {/* 📦 QUANTITY */}
                 <div>
                   <label className="block text-sm font-medium text-charcoal mb-2">
-                    Quantity
+                    📦 Quantity
                   </label>
                   <select
                     name="quantity"
@@ -130,9 +138,10 @@ Please share more details.`;
                   </select>
                 </div>
 
+                {/* 💬 MESSAGE */}
                 <div>
                   <label className="block text-sm font-medium text-charcoal mb-2">
-                    Message (Optional)
+                    💬 Message (Optional)
                   </label>
                   <textarea
                     name="message"
@@ -154,6 +163,7 @@ Please share more details.`;
                   <FaWhatsapp className="w-5 h-5" />
                   Continue to WhatsApp
                 </motion.button>
+
               </form>
             </div>
           </motion.div>
